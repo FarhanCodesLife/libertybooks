@@ -39,8 +39,8 @@ export default function Home() {
     <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
       <h1>Books</h1>
       
-      <div>
-        <Card books={books}/>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 bg-gray-700 w-full h-screen">
+      <Card books={books}/>
       </div>
       
     </div>
