@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Book } from "./types/book";
+import Card from "./componets/Card"
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -37,26 +38,11 @@ export default function Home() {
   return (
     <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
       <h1>Books</h1>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            <strong>{book.title}</strong> by {book.author}{" "}
-            <button
-              onClick={() => deleteBook(book.id)}
-              style={{
-                marginLeft: "1rem",
-                backgroundColor: "red",
-                color: "white",
-                border: "none",
-                padding: "0.5rem",
-                cursor: "pointer",
-              }}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      
+      <div>
+        <Card books={books}/>
+      </div>
+      
     </div>
   );
 }

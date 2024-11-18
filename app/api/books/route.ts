@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { Book } from "../../types/book";
 
-// In-memory database
-const books:[Book] = [
+let books:Book = [
   {
     id: 1,
     title: "To Kill a Mockingbird",
