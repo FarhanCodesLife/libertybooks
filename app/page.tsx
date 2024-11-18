@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Book } from "./types/book";
 import Card from "./componets/Card"
+import "./globals.css";
+
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -37,10 +39,16 @@ export default function Home() {
 
   return (
     <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
-      <h1>Books</h1>
+       
+
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-semibold text-gray-700">
+            Explore Our Collection
+          </h2>
+        </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 bg-gray-700 w-full h-screen">
-      <Card books={books}/>
+      <div className='flex justify-evenly items-center w-full'>
+        <Card books={books} />
       </div>
       
     </div>
