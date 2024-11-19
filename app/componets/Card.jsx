@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Card = ({ books }) => {
@@ -9,11 +10,12 @@ const Card = ({ books }) => {
             key={book.id}
             className="bg-white cursor-pointer shadow-lg h-96 rounded-lg overflow-hidden transform hover:scale-105 transition duration-300"
           >
-            <img
+            <Image src={book.image} alt={book.title} className='w-full h-72' />
+            {/* <img
               src={book.image}
               alt={book.title}
               className="w-full h-72 "
-            />
+            /> */}
             <div className="p-4">
               <h1 className="text-lg font-bold text-gray-800">{book.title}</h1>
               <h2 className="text-md text-gray-600">{book.author}</h2>

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Book } from "../../types/book";
 
 // Sample book data
-let books: Book[] = [
+const books: Book[] = [
   {
     id: 1,
     title: "To Kill a Mockingbird",
