@@ -10,7 +10,7 @@ const Card = ({ books }) => {
             key={book.id}
             className="bg-white cursor-pointer shadow-lg h-96 rounded-lg overflow-hidden transform hover:scale-105 transition duration-300"
           >
-            <Image src={book.image} alt={book.title} className='w-full h-72' />
+            <Image width={100} height={70} src={book.image} alt={book.title} className='w-full h-72' />
             {/* <img
               src={book.image}
               alt={book.title}
