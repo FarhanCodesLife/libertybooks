@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { Book } from "../../types/book";
 
-// Sample book data
 const books: Book[] = [
   {
     id: 1,
@@ -145,16 +144,13 @@ const books: Book[] = [
   }
 ];
 
-// GET Request: Return all books
 export async function GET() {
   return NextResponse.json(books);
 }
 
-// POST Request: Add a new book
 export async function POST(req: Request) {
   const { title, author, image, price } = await req.json();
 
-  // Validate input
   if (!title || !author || !image || !price) {
     return NextResponse.json(
       { error: "Title, author, image, and price are required" },
@@ -162,7 +158,6 @@ export async function POST(req: Request) {
     );
   }
 
-  // Validate price is a valid number
   if (isNaN(price)) {
     return NextResponse.json(
       { error: "Price must be a valid number" },
@@ -170,31 +165,25 @@ export async function POST(req: Request) {
     );
   }
 
-  // Create a new book and add it to the list
   const newBook: Book = { id: books.length + 1, title, author, image, price };
   books.push(newBook);
 
   return NextResponse.json(newBook, { status: 201 });
 }
 
-// DELETE Request: Delete a book by ID
 export async function DELETE(req: Request) {
   const { id } = await req.json();
 
-  // Validate id is provided
   if (!id) {
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
   }
 
-  // Find the index of the book to delete
   const bookIndex = books.findIndex((book) => book.id === id);
 
-  // If book is not found, return error
   if (bookIndex === -1) {
     return NextResponse.json({ error: "Book not found" }, { status: 404 });
   }
 
-  // Remove the book from the list
   books.splice(bookIndex, 1);
 
   return NextResponse.json({ message: "Book deleted successfully!" });
